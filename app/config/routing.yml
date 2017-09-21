@@ -1,0 +1,7 @@
+sm_admin:
+    resource: "@SMAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

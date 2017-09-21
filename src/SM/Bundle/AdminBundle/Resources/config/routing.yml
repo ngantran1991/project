@@ -1,0 +1,8 @@
+sm_admin_homepage:
+    path:     /admin
+    defaults: { _controller: SMAdminBundle:Default:index }
+
+
+_demo_secured:
+    resource: "@SMAdminBundle/Controller/SecuredController.php"
+    type:     annotation
