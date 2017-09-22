@@ -1,0 +1,30 @@
+admin_role:
+    path:     /
+    defaults: { _controller: "SMAdminBundle:Role:index" }
+
+admin_role_show:
+    path:     /{id}/show
+    defaults: { _controller: "SMAdminBundle:Role:show" }
+
+admin_role_new:
+    path:     /new
+    defaults: { _controller: "SMAdminBundle:Role:new" }
+
+admin_role_create:
+    path:     /create
+    defaults: { _controller: "SMAdminBundle:Role:create" }
+    methods:  POST
+
+admin_role_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SMAdminBundle:Role:edit" }
+
+admin_role_update:
+    path:     /{id}/update
+    defaults: { _controller: "SMAdminBundle:Role:update" }
+    methods:  [POST, PUT]
+
+admin_role_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SMAdminBundle:Role:delete" }
+    methods:  [GET]

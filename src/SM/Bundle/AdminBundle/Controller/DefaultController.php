@@ -9,7 +9,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $return = array(
-            'header' => 'Welcome',
+            'header' => 'Dashboard',
             'content' => 'This is my backend'
         );
         return $this->render('SMAdminBundle:Default:index.html.twig', $return);

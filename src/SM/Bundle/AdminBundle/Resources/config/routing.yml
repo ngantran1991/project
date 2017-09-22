@@ -1,6 +1,14 @@
 sm_admin_homepage:
     path:     /admin
     defaults: { _controller: SMAdminBundle:Default:index }
+    
+sm_user_admin_role:
+    resource: "@SMAdminBundle/Resources/config/routing/role.yml"
+    prefix:   /admin/role
+
+sm_user_admin_user:
+    resource: "@SMAdminBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin/user
 
 
 _demo_secured:

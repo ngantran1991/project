@@ -99,12 +99,14 @@
 
         <!-- Morris Charts JavaScript -->
         <script src="{{asset('static/admin/bower_components/raphael/raphael-min.js')}}"></script>
-
+        {% block footerScript %}{% endblock footerScript %}
         <!-- Custom Theme JavaScript -->
         <script src="{{asset('static/admin/dist/js/sb-admin-2.js')}}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         
         <script src="{{asset('static/admin/js/script.js')}}"></script>
+        
+        
         
         
         

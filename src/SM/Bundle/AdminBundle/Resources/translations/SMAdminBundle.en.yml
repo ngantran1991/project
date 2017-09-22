@@ -2,3 +2,5 @@ admin.login.title: Form Login
 admin.login.remember: Remember me
 admin.login: Login
 admin.menu.logout: Logout
+admin.dashboard.version: Admin Manager
+admin.toggle.navigation: Navigation
