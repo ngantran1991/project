@@ -5,6 +5,7 @@ namespace SM\Bundle\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use SM\Bundle\AdminBundle\Entity\AdminStatus;
 
 /**
  * Compte
@@ -105,7 +106,7 @@ class Admin implements AdvancedUserInterface, \Serializable
     private $idStatus;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Role", inversedBy="admin")
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="admins")
      *
      */
     private $roles;
@@ -162,7 +163,13 @@ class Admin implements AdvancedUserInterface, \Serializable
 
     public function isEnabled()
     {
-        return $this->idStatus;
+        if (!($this->idStatus instanceof AdminStatus)){
+            return false;
+        }
+        if ($this->idStatus->getName() == "active"){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -170,7 +177,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      */
     public function getRoles()
     {
-        //return array('ROLE_USER');
+//        return array('ROLE_ADMIN');
         return $this->roles->toArray();
 
     }

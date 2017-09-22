@@ -35,7 +35,7 @@ class SecuredController extends Controller
 
         if (isset($error) && $error->getMessage() == 'Bad credentials.') {
             $code = 1;
-            $message = 'Votre couple login / mot de passe est incorrect';
+            $message = 'Username / Password is incorrest';
 
             $error = new \Symfony\Component\Security\Core\Exception\BadCredentialsException($message, $code);
         }

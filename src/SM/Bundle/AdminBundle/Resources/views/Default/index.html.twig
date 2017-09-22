@@ -1,1 +1,7 @@
-Hello World!
+{% extends 'SMAdminBundle::layout.html.twig' %}
+{%block header -%}
+    {{header}}
+{%- endblock header%}
+{%block body -%}
+    <strong>{{'admin.dashboard.wellcome'|trans({}, 'SMAdminBundle')}}</strong>
+{%- endblock body%}
