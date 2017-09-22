@@ -1,0 +1,50 @@
+{% extends 'SMAdminBundle::layout.html.twig' %}
+{%block header%}{{'admin.role.panelDetail'|trans({}, 'SMAdminBundle')}}{%endblock header%}
+{% block body -%}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-user"></i> {{ entity.name }}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>{{'admin.id'|trans({}, 'SMAdminBundle')}}</th>
+                                    <td>{{ entity.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{'admin.role.name'|trans({}, 'SMAdminBundle')}}</th>
+                                    <td>{{ entity.name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{'admin.role.role'|trans({}, 'SMAdminBundle')}}</th>
+                                    <td>{{ entity.role }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <a href="{{ path('admin_role') }}" class="btn btn-warning">
+                                {{'admin.button.backtolist'|trans({}, 'SMAdminBundle')}}
+                            </a>
+                            <a href="{{ path('admin_role_edit', { 'id': entity.id }) }}" class="btn btn-info">
+                                {{'admin.button.edit'|trans({}, 'SMAdminBundle')}}
+                            </a>
+                        </div>
+                        <div class="col-lg-1">
+                            {{form_start(delete_form)}}
+                            {{ form_widget(delete_form.submit, {'attr':{'class':'btn btn-danger'}}) }}
+                            {{form_end(delete_form)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

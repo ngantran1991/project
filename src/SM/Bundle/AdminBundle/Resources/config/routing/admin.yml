@@ -1,0 +1,31 @@
+admin_user:
+    path:     /
+    defaults: { _controller: "SMAdminBundle:Admin:index" }
+
+admin_user_show:
+    path:     /{id}/show
+    defaults: { _controller: "SMAdminBundle:Admin:show" }
+
+admin_user_new:
+    path:     /new
+    defaults: { _controller: "SMAdminBundle:Admin:new" }
+
+admin_user_create:
+    path:     /create
+    defaults: { _controller: "SMAdminBundle:Admin:create" }
+    methods:  POST
+
+admin_user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SMAdminBundle:Admin:edit" }
+
+admin_user_update:
+    path:     /{id}/update
+    defaults: { _controller: "SMAdminBundle:Admin:update" }
+    methods:  [POST, PUT]
+
+admin_user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SMAdminBundle:Admin:delete" }
+    methods:  [GET]
+#    methods:  [POST, DELETE]

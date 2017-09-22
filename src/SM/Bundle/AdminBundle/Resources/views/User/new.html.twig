@@ -1,0 +1,49 @@
+{% extends 'SMAdminBundle::layout.html.twig' %}
+{%block header%}{{'admin.user.titleCreate'|trans({}, 'SMAdminBundle')}}{%endblock header%}
+{% block body -%}
+    <div class="row">
+        {{ form_start(form) }}
+        <div class="col-md-8 col-md-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-user"></i> {{'admin.user.panelCreate'|trans({}, 'SMAdminBundle')}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                    <td>{{form_label(form.username)}}</td>
+                                    <td>{{form_widget(form.username)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(form.password)}}</td>
+                                    <td>{{form_widget(form.password)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(form.email)}}</td>
+                                    <td>{{form_widget(form.email)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(form.isActive)}}</td>
+                                    <td>{{form_widget(form.isActive)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(form.roles)}}</td>
+                                    <td>{{form_widget(form.roles, {'attr':{'class':'form-control'} })}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    {{form_widget(form.submit, {'attr':{'class':'btn btn-primary'}})}}
+                    <a href="{{ path('admin_user') }}" class="btn btn-warning">
+                        {{'admin.button.backtolist'|trans({}, 'SMAdminBundle')}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
