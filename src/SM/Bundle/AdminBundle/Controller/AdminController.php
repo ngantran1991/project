@@ -8,6 +8,7 @@ use SM\Bundle\AdminBundle\Entity\Admin;
 use SM\Bundle\AdminBundle\Form\AdminType;
 use SM\Bundle\AdminBundle\Utilities\Utilities;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Admin controller.
@@ -20,16 +21,33 @@ class AdminController extends Controller
      * Lists all Admin entities.
      *
      */
-    public function indexAction()
+    public function indexAction($page = 1)
     {
+        $error = "";
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SMAdminBundle:Admin')->findAll();
+        $limited = $this->container->getParameter('paginate_page_limit');
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($entities, $page, $limited);
 
         return $this->render('SMAdminBundle:Admin:index.html.twig', array(
-                'entities' => $entities,
+                'entities' => $pagination,
+                'page' => $page,
+                'numberRecord' => $limited,
+                'error' => $error,
         ));
 
+    }
+    
+    /**
+     * change status account
+     * @param Request $request
+     */
+    public function changeAction(Request $request)
+    {
+        return new JsonResponse(array('name' => 123));
     }
 
     /**

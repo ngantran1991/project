@@ -1,0 +1,2 @@
+parameters:
+    paginate_page_limit: 10

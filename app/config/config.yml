@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: parameters_contant_admin.yml }
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@SMAdminBundle/Resources/config/services.yml" }
