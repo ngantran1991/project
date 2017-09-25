@@ -9,6 +9,7 @@ use SM\Bundle\AdminBundle\Form\AdminType;
 use SM\Bundle\AdminBundle\Utilities\Utilities;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use SM\Bundle\AdminBundle\Entity\AdminStatus;
 
 /**
  * Admin controller.
@@ -45,9 +46,32 @@ class AdminController extends Controller
      * change status account
      * @param Request $request
      */
-    public function changeAction(Request $request)
+    public function changeActiveDeactiveAction(Request $request)
     {
-        return new JsonResponse(array('name' => 123));
+        try {
+            $em = $this->getDoctrine()->getManager();
+            $objAdmin = $em->getRepository('SMAdminBundle:Admin')->find($_POST['id']);
+            $statusChange = $_POST['status'] == 2 ? 1 : 2;
+            $objStatusAdmin = $em->getRepository('SMAdminBundle:AdminStatus')->find($statusChange);
+
+            if(empty($objAdmin) || !($objAdmin instanceof Admin)){
+                return new JsonResponse(array('status' => "error"));
+            }
+            if(empty($objStatusAdmin) || !($objStatusAdmin instanceof AdminStatus)){
+                return new JsonResponse(array('status' => "error"));
+            }
+            $objAdmin->setIdStatus($objStatusAdmin);
+            $em->persist($objAdmin);
+            $em->flush();
+
+            return new JsonResponse(array('status' => "success",
+                'data' => array('id' =>$_POST['id'],
+                        'status' => $statusChange
+                    )
+                ));
+        } catch (Exception $e) {
+            return new JsonResponse(array('status' => "error", 'message' => $e->getMessage() ));
+        }
     }
 
     /**
@@ -59,13 +83,19 @@ class AdminController extends Controller
         $entity = new Admin();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        
         if ($form->isValid()) {
             $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
             $password = $encoder->encodePassword($entity->getPassword(), $entity->getSalt());
             $entity->setPassword($password);
-
+            $now = new \Datetime();
+            $entity->setDateCreation($now);
+            $entity->setDateModification($now);
+            
             $em = $this->getDoctrine()->getManager();
+            $objStatusDeactive =  $em->getRepository('SMAdminBundle:AdminStatus')->findOneBy(array('name'=> 'deactive'));
+            
+            $entity->setIdStatus($objStatusDeactive);
             $em->persist($entity);
             $em->flush();
 

@@ -47,7 +47,7 @@
                 </div>
                 <div class="panel-footer">
                     <a href="{{ path('admin_user_new') }}" class="btn btn-primary">
-                        {{'admin.button.create'|trans({}, 'SMAdminBundle')}}
+                        Thêm tài khoản
                     </a>
                 </div>
             </div>
@@ -58,8 +58,8 @@
         var strQuestion = status == 1 ? "Bạn có muốn deactive account?" : "Bạn có muốn active account";
         var r = confirm(strQuestion);
         if (r == true) {
-            {#$.ajax({
-                url : "{{url('admin_user_ajax_active_deactive')}}",
+            $.ajax({
+                url : "{{path('admin_user_ajax_active_deactive')}}",
                 type : "post",
                 dataType: 'json',
                 data : {
@@ -67,16 +67,16 @@
                     id: idAcc
                 },
                 success : function (result){
-                    $('#result').html(result);
+                    if (result.status == "success"){
+                        if(status == 2){
+                            $("[onclick='changeStatus(" + status + ", " + idAcc + ");']").parents("td").append('<button class="btn btn-primary btn-circle" type="button" onclick="changeStatus(1, ' + idAcc + ');"><i class="fa fa-check"></i></button>');
+                            $("[onclick='changeStatus(" + status + ", " + idAcc + ");']").remove();
+                        } else {
+                            $("[onclick='changeStatus(" + status + ", " + idAcc + ");']").parents("td").append('<button class="btn btn-danger btn-circle" type="button" onclick="changeStatus(2, ' + idAcc + ');"><i class="fa fa-times"></i></button>');
+                            $("[onclick='changeStatus(" + status + ", " + idAcc + ");']").remove();
+                        }
+                    }
                 }
-            });#}
-            $.ajax({
-                method: "POST",
-                url: "{{url('admin_user_ajax_active_deactive')}}",
-                data: { name: "John", location: "Boston" }
-            })
-            .done(function( msg ) {
-              alert( "Data Saved: " + msg );
             });
         }
     }

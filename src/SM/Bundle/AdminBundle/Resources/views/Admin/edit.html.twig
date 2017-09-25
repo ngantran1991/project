@@ -1,12 +1,12 @@
 {% extends 'SMAdminBundle::layout.html.twig' %}
-{%block header%}{{'admin.user.titleEdit'|trans({}, 'SMAdminBundle')}}{%endblock header%}
+{%block header%}Chỉnh sửa tài khoản{%endblock header%}
 {% block body -%}
     <div class="row">
         {{ form_start(edit_form) }}
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-user"></i> {{'admin.user.panelCreate'|trans({}, 'SMAdminBundle')}}</h3>
+                    <h3 class="panel-title"><i class="fa fa-user"></i> Thông tin tài khoản</h3>
                 </div>
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
@@ -14,24 +14,40 @@
 
                             <tbody>
                                 <tr>
-                                    <td>{{form_label(edit_form.username)}}</td>
-                                    <td>{{form_widget(edit_form.username)}}</td>
+                                    <td>{{form_label(edit_form.firstname)}}</td>
+                                    <td>{{form_widget(edit_form.firstname)}}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{form_label(edit_form.password)}}</td>
-                                    <td>{{form_widget(edit_form.password)}}</td>
+                                    <td>{{form_label(edit_form.lastname)}}</td>
+                                    <td>{{form_widget(edit_form.lastname)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(edit_form.phone)}}</td>
+                                    <td>{{form_widget(edit_form.phone)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(edit_form.address)}}</td>
+                                    <td>{{form_widget(edit_form.address)}}</td>
                                 </tr>
                                 <tr>
                                     <td>{{form_label(edit_form.email)}}</td>
                                     <td>{{form_widget(edit_form.email)}}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{form_label(edit_form.isActive)}}</td>
-                                    <td>{{form_widget(edit_form.isActive)}}</td>
+                                    <td>{{form_label(edit_form.username)}}</td>
+                                    <td>{{form_widget(edit_form.username)}}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{form_label(edit_form.roles)}}</td>
-                                    <td>{{form_widget(edit_form.roles, {'attr':{'class':'form-control'} })}}</td>
+                                    <td>{{form_label(edit_form.password.first)}}</td>
+                                    <td>{{form_widget(edit_form.password.first)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(edit_form.password.second)}}</td>
+                                    <td>{{form_widget(edit_form.password.second)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{form_label(edit_form.description)}}</td>
+                                    <td>{{form_widget(edit_form.description)}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -40,7 +56,7 @@
                 <div class="panel-footer">
                     {{form_widget(edit_form.submit, {'attr':{'class':'btn btn-primary'}})}}
                     <a href="{{ path('admin_user') }}" class="btn btn-warning">
-                        {{'admin.button.backtolist'|trans({}, 'SMAdminBundle')}}
+                        Danh sách tài khoản
                     </a>
 
                 </div>

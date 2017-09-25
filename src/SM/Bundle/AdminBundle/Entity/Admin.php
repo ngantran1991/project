@@ -6,12 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use SM\Bundle\AdminBundle\Entity\AdminStatus;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Compte
+ * Admin
  *
  * @ORM\Table(name="admin", indexes={@ORM\Index(name="id", columns={"id"}), @ORM\Index(name="id_status", columns={"id_status"})})
  * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\AdminRepository")
+ * @UniqueEntity("username")
  */
 class Admin implements AdvancedUserInterface, \Serializable
 {
@@ -63,7 +65,7 @@ class Admin implements AdvancedUserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=100, nullable=true)
+     * @ORM\Column(name="username", type="string", length=100, nullable=true, unique=true)
      */
     private $username;
 
@@ -233,7 +235,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      * Set firstname
      *
      * @param string $firstname
-     * @return Compte
+     * @return firstname
      */
     public function setFirstname($firstname)
     {
@@ -308,7 +310,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      * Set address
      *
      * @param string $address
-     * @return Compte
+     * @return address
      */
     public function setAddress($address)
     {
@@ -383,7 +385,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      * Set password
      *
      * @param string $password
-     * @return Compte
+     * @return password
      */
     public function setPassword($password)
     {
@@ -408,7 +410,7 @@ class Admin implements AdvancedUserInterface, \Serializable
      * Set description
      *
      * @param string $description
-     * @return Compte
+     * @return description
      */
     public function setDescription($description)
     {

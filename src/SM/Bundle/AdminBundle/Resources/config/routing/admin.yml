@@ -1,10 +1,10 @@
 admin_user:
-    path:     /{page}/
+    path:     /list/{page}
     defaults: { _controller: "SMAdminBundle:Admin:index", page: 1 }
 
 admin_user_ajax_active_deactive:
     path:     /active_deactive
-    defaults: { _controller: "SMAdminBundle:Admin:change"}
+    defaults: { _controller: "SMAdminBundle:Admin:changeActiveDeactive"}
     methods:  POST
 
 admin_user_show:
