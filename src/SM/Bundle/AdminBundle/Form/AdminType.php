@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use FM\ElfinderBundle\Form\Type\ElFinderType;
 
 class AdminType extends AbstractType
 {
@@ -36,7 +38,15 @@ class AdminType extends AbstractType
                 ),
                 'label' => 'Điện thoại'
             ))
-            ->add('address', null, array(
+            ->add('address', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    'filebrowserBrowseRoute' => 'elfinder',
+                    'filebrowserBrowseRouteParameters' => array(
+                        'instance' => 'default',
+                        'homeFolder' => ''
+                    )
+                ),
                 'attr' => array('class' => 'form-control'),
                 'label' => 'Địa chỉ'
             ))

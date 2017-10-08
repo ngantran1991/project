@@ -31,8 +31,6 @@ class HttpUtils
     private $urlMatcher;
 
     /**
-     * Constructor.
-     *
      * @param UrlGeneratorInterface                       $urlGenerator A UrlGeneratorInterface instance
      * @param UrlMatcherInterface|RequestMatcherInterface $urlMatcher   The URL or Request matcher
      *
@@ -41,7 +39,7 @@ class HttpUtils
     public function __construct(UrlGeneratorInterface $urlGenerator = null, $urlMatcher = null)
     {
         $this->urlGenerator = $urlGenerator;
-        if ($urlMatcher !== null && !$urlMatcher instanceof UrlMatcherInterface && !$urlMatcher instanceof RequestMatcherInterface) {
+        if (null !== $urlMatcher && !$urlMatcher instanceof UrlMatcherInterface && !$urlMatcher instanceof RequestMatcherInterface) {
             throw new \InvalidArgumentException('Matcher must either implement UrlMatcherInterface or RequestMatcherInterface.');
         }
         $this->urlMatcher = $urlMatcher;

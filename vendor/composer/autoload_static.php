@@ -10,10 +10,11 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '6b06ce8ccf69c43a60a1e48495a034c9' => __DIR__ . '/..' . '/react/promise-timer/src/functions.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
+        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         'edc6464955a37aa4d5fbf39d40fb6ee7' => __DIR__ . '/..' . '/symfony/polyfill-php55/bootstrap.php',
@@ -21,7 +22,7 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
-        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         'f0f6d0306c60de0c726f46c20b6d602e' => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php',
     );
 
@@ -29,6 +30,7 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         'T' => 
         array (
             'Twig\\' => 5,
+            'Trsteel\\CkeditorBundle\\' => 23,
         ),
         'S' => 
         array (
@@ -93,6 +95,9 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         ),
         'I' => 
         array (
+            'Ivory\\JsonBuilder\\' => 18,
+            'Ivory\\CKEditorBundle\\' => 21,
+            'Intervention\\Image\\' => 19,
             'Incenteev\\ParameterHandler\\' => 27,
         ),
         'G' => 
@@ -102,6 +107,8 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         'F' => 
         array (
             'FOS\\RestBundle\\' => 15,
+            'FM\\ElfinderBundle\\' => 18,
+            'FM\\ElFinderPHP\\' => 15,
         ),
         'D' => 
         array (
@@ -128,6 +135,10 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Trsteel\\CkeditorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/trsteel/ckeditor-bundle',
         ),
         'Symfony\\Polyfill\\Util\\' => 
         array (
@@ -289,6 +300,18 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         array (
             0 => __DIR__ . '/..' . '/jms/serializer-bundle',
         ),
+        'Ivory\\JsonBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
+        ),
+        'Ivory\\CKEditorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/ckeditor-bundle',
+        ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -300,6 +323,14 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
         'FOS\\RestBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
+        ),
+        'FM\\ElfinderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/helios-ag/fm-elfinder-bundle',
+        ),
+        'FM\\ElFinderPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/helios-ag/fm-elfinder-php-connector/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -420,6 +451,13 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
                 0 => __DIR__ . '/..' . '/jms/parser-lib/src',
             ),
         ),
+        'H' => 
+        array (
+            'HTMLPurifier' => 
+            array (
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
+            ),
+        ),
         'E' => 
         array (
             'Evenement' => 
@@ -452,6 +490,13 @@ class ComposerStaticInit8d9551bec162583cd7091597f4a8195d
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
+        'C' => 
+        array (
+            'ComponentInstaller' => 
+            array (
+                0 => __DIR__ . '/..' . '/robloach/component-installer/src',
             ),
         ),
         'A' => 

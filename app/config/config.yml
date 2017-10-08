@@ -212,3 +212,59 @@ knp_paginator:
 #        sandbox: false
 #        pem: "certificates/inhousepushcert.pem"
 #        passphrase: "no password"
+# trsteel_ckeditor:
+#     class: Trsteel\CkeditorBundle\Form\Type\CkeditorType
+#     transformers: ['html_purifier']
+#     toolbar: ['document', 'clipboard', 'editing', '/', 'basicstyles', 'paragraph', 'links', '/', 'insert', 'styles', 'tools']
+#     toolbar_groups:
+#         document: ['Source','-','Save','-','Templates']
+#         clipboard: ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo']
+#         editing: ['Find','Replace','-','SelectAll']
+#         basicstyles: ['Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat']
+#         paragraph: ['NumberedList','BulletedList','-','Outdent','Indent','-','JustifyLeft', 'JustifyCenter','JustifyRight','JustifyBlock']
+#         links: ['Link','Unlink','Anchor']
+#         insert: ['Image','Flash','Table','HorizontalRule']
+#         styles: ['Styles','Format']
+#         tools: ['Maximize', 'ShowBlocks']
+#     ui_color: '#000000'
+#     startup_outline_blocks: true
+#     width: 800 #Integer or %
+#     height: 300 #Integer or %
+#     language: 'en-au'
+#     filebrowser_upload_url:
+#         url: relative-url.php?type=file
+#     filebrowser_image_browse_url:
+#         route: route_name
+#         route_parameters:
+#             type: image
+fm_elfinder:
+    #assets_path: / # default is /assets, this is where css/js elfinder files are
+    instances:
+        default:
+            locale: %locale% # defaults to current request locale
+            editor: form # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
+            #editor_template: custom template for your editor # default null
+            #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
+            #fullscreen: true|false # default is true, applies to simple and ckeditor editors
+            #theme: smoothness # jquery theme, default is 'smoothness'
+            include_assets: true # disable if you want to manage loading of javascript and css assets manually
+            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            connector:
+                #debug: true|false # defaults to false
+                roots:       # at least one root must be defined, defines root filemanager directories
+                    uploads:
+                        #show_hidden: true|false # defaults to false, hides dotfiles
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M # also file upload sizes restricted in php.ini
+                        #attributes: example of setting attributes permission
+                        #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
+

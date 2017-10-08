@@ -7,6 +7,46 @@ in 2.7 minor versions.
 To get the diff for a specific change, go to https://github.com/symfony/symfony/commit/XXX where XXX is the change hash
 To get the diff between two versions, go to https://github.com/symfony/symfony/compare/v2.7.0...v2.7.1
 
+* 2.7.35 (2017-10-05)
+
+ * bug #24448 [Session] fix MongoDb session handler to gc all expired sessions (Tobion)
+ * bug #24417 [Yaml] parse references on merge keys (xabbuh)
+ * bug #24421 [Config] Fix dumped files invalidation by OPCache (nicolas-grekas)
+ * bug #23980 Tests and fix for issue in array model data in EntityType field with multiple=true (stoccc)
+ * bug #22586 [Form] Fixed PercentToLocalizedStringTransformer to accept both comma and dot as decimal separator, if possible (aaa2000)
+ * bug #24157 [Intl] Fixed support of Locale::getFallback (lyrixx)
+ * bug #24198 [HttpFoundation] Fix file upload multiple with no files (enumag)
+ * bug #24036 [Form] Fix precision of MoneyToLocalizedStringTransformer's divisions and multiplications (Rubinum)
+ * bug #24367 PdoSessionHandler: fix advisory lock for pgsql (Tobion)
+ * bug #24243 HttpCache does not consider ESI resources in HEAD requests (mpdude)
+ * bug #24304 [FrameworkBundle] Fix Routing\DelegatingLoader (nicolas-grekas)
+ * bug #24219 [Console] Preserving line breaks between sentences according to the exception message (yceruto)
+ * bug #23722 [Form] Fixed GroupSequence with "constraints" option (HeahDude)
+ * bug #22321 [Filesystem] Fixed makePathRelative (ausi)
+ * bug #23473 [Filesystem] mirror - fix copying content with same name as source/target. (gitlost)
+ * bug #24162 [WebProfilerBundle] fixed TemplateManager when using Twig 2 without compat interfaces (fabpot)
+ * bug #24141 [DomCrawler] Fix conversion to int on GetPhpFiles (MaraBlaga)
+ * bug #23853 Filtering empty uuids in ORMQueryBuilderLoader. (mlazovla)
+ * bug #24101 [Security] Fix exception when use_referer option is true and referer is not set or empty (linniksa)
+ * bug #24105 [Filesystem] check permissions if dump target dir is missing (xabbuh)
+ * bug #24115 [FrameworkBundle] Get KERNEL_DIR through $_ENV too for KernelTestCase (yceruto)
+ * bug #24041 [ExpressionLanguage] throws an exception on calling uncallable method (fmata)
+ * bug #24096 Fix ArrayInput::toString() for VALUE_IS_ARRAY options/args (chalasr)
+ * bug #23730 Fixed the escaping of back slashes and << in console output (javiereguiluz)
+
+* 2.7.34 (2017-08-28)
+
+ * bug #23989 [Debug] Remove false-positive check in DebugClassLoader (nicolas-grekas)
+ * bug #23982 [VarDumper] Strengthen dumped JS (nicolas-grekas)
+ * bug #23925 [Validator] Fix use of GroupSequenceProvider in child classes (linniksa)
+ * bug #23945 [Validator] Fix Greek translation (azhurb)
+ * bug #23909 [Console] Initialize lazily to render exceptions properly (nicolas-grekas)
+ * bug #23856 [DI] Fix dumping abstract with YamlDumper (nicolas-grekas)
+ * bug #23752 Ignore memcached missing key error on session destroy (jderusse)
+ * bug #23658 [HttpFoundation] Generate safe fallback filename for wrongly encoded filename (xelaris)
+ * bug #23783 Avoid infinite loops when profiler data is malformed (javiereguiluz)
+ * bug #23729 [Bridge\ProxyManager] Dont call __destruct() on non-instantiated services (nicolas-grekas)
+
 * 2.7.33 (2017-08-01)
 
  * bug #22244 [Console] Fix passing options with defaultCommand (Jakub Sacha)
