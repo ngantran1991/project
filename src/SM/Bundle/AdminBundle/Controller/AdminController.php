@@ -227,6 +227,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SMAdminBundle:Admin')->find($id);
+        $passwordOld = $entity->getPassword();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Admin entity.');
@@ -238,8 +239,12 @@ class AdminController extends Controller
 
         if ($editForm->isValid()) {
             $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
-            $password = $encoder->encodePassword($entity->getPassword(), $entity->getSalt());
-            $entity->setPassword($password);
+            if(!empty($entity->getPassword())){
+                $password = $encoder->encodePassword($entity->getPassword(), $entity->getSalt());
+                $entity->setPassword($password);
+            } else {
+                $entity->setPassword($passwordOld);
+            }
 
             $em->flush();
 
