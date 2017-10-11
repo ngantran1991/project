@@ -6,14 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * AdminStatus
+ * LoaiMonAn
  *
- * @ORM\Table(name="admin_status", indexes={@ORM\Index(name="id", columns={"id"})})
- * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\AdminStatusRepository")
+ * @ORM\Table(name="loai_mon_an", indexes={@ORM\Index(name="id", columns={"id"})})
+ * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\LoaiMonAnRepository")
  */
-class AdminStatus
+class LoaiMonAn
 {
-
+    
     /**
      * @var integer
      *
@@ -21,22 +21,22 @@ class AdminStatus
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idStatus;
-
+    private $id;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
-
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
      */
-    private $description;
-
+    private $status;
+    
     /**
      * @var \DateTime
      *
@@ -50,36 +50,33 @@ class AdminStatus
      * @ORM\Column(name="date_modification", type="date", nullable=true)
      */
     private $dateModification;
-
+    
     public function __construct()
     {
 //        $this->address = new ArrayCollection();
-
     }
-
+    
     /**
-     * Get idStatus
+     * Get id
      *
      * @return integer
      */
-    public function getIdStatus()
+    public function getId()
     {
-        return $this->idStatus;
-
+        return $this->id;
     }
     
     /**
      * Set name
      *
      * @param string $name
-     * @return Compte
+     * @return Name
      */
     public function setName($name)
     {
         $this->name = $name;
 
         return $this;
-
     }
 
     /**
@@ -90,39 +87,36 @@ class AdminStatus
     public function getName()
     {
         return $this->name;
-
     }
-
+    
     /**
-     * Set description
+     * Set status
      *
-     * @param string $description
-     * @return Admin
+     * @param string $status
+     * @return Status
      */
-    public function setDescription($description)
+    public function setStatus($status)
     {
-        $this->description = $description;
+        $this->status = $status;
 
         return $this;
-
     }
 
     /**
-     * Get description
+     * Get status
      *
      * @return string
      */
-    public function getDescription()
+    public function getStatus()
     {
-        return $this->description;
-
+        return $this->status;
     }
-
+    
     /**
      * Set dateCreation
      *
      * @param \DateTime $dateCreation
-     * @return Compte
+     * @return LoaiMonAn
      */
     public function setDateCreation($dateCreation)
     {
@@ -147,7 +141,7 @@ class AdminStatus
      * Set dateModification
      *
      * @param \DateTime $dateModification
-     * @return Admin
+     * @return LoaiMonAn
      */
     public function setDateModification($dateModification)
     {
@@ -166,10 +160,5 @@ class AdminStatus
     {
         return $this->dateModification;
 
-    }
-    
-    public function getId()
-    {
-        return $this->getIdStatus();
     }
 }

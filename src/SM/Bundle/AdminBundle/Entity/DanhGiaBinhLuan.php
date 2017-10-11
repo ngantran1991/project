@@ -6,14 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * AdminStatus
+ * DanhGiaBinhLuan
  *
- * @ORM\Table(name="admin_status", indexes={@ORM\Index(name="id", columns={"id"})})
- * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\AdminStatusRepository")
+ * @ORM\Table(name="danh_gia_binh_luan", indexes={@ORM\Index(name="id", columns={"id"})})
+ * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\DanhGiaBinhLuanRepository")
  */
-class AdminStatus
+class DanhGiaBinhLuan
 {
-
+    
     /**
      * @var integer
      *
@@ -21,22 +21,29 @@ class AdminStatus
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idStatus;
-
+    private $id;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
-
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
-    private $description;
-
+    private $type;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+    
     /**
      * @var \DateTime
      *
@@ -50,36 +57,33 @@ class AdminStatus
      * @ORM\Column(name="date_modification", type="date", nullable=true)
      */
     private $dateModification;
-
+    
     public function __construct()
     {
 //        $this->address = new ArrayCollection();
-
     }
-
+    
     /**
-     * Get idStatus
+     * Get id
      *
      * @return integer
      */
-    public function getIdStatus()
+    public function getId()
     {
-        return $this->idStatus;
-
+        return $this->id;
     }
     
     /**
      * Set name
      *
      * @param string $name
-     * @return Compte
+     * @return Name
      */
     public function setName($name)
     {
         $this->name = $name;
 
         return $this;
-
     }
 
     /**
@@ -90,39 +94,59 @@ class AdminStatus
     public function getName()
     {
         return $this->name;
-
     }
-
+    
     /**
-     * Set description
+     * Set type
      *
-     * @param string $description
-     * @return Admin
+     * @param string $type
+     * @return Type
      */
-    public function setDescription($description)
+    public function setType($type)
     {
-        $this->description = $description;
+        $this->type = $type;
 
         return $this;
-
     }
 
     /**
-     * Get description
+     * Get type
      *
      * @return string
      */
-    public function getDescription()
+    public function getType()
     {
-        return $this->description;
+        return $this->type;
+    }
+    
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
 
+        return $this;
     }
 
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
     /**
      * Set dateCreation
      *
      * @param \DateTime $dateCreation
-     * @return Compte
+     * @return DanhGiaBinhLuan
      */
     public function setDateCreation($dateCreation)
     {
@@ -147,7 +171,7 @@ class AdminStatus
      * Set dateModification
      *
      * @param \DateTime $dateModification
-     * @return Admin
+     * @return DanhGiaBinhLuan
      */
     public function setDateModification($dateModification)
     {
@@ -166,10 +190,5 @@ class AdminStatus
     {
         return $this->dateModification;
 
-    }
-    
-    public function getId()
-    {
-        return $this->getIdStatus();
     }
 }

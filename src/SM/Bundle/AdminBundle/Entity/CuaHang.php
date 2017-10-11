@@ -6,14 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * AdminStatus
+ * CuaHang
  *
- * @ORM\Table(name="admin_status", indexes={@ORM\Index(name="id", columns={"id"})})
- * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\AdminStatusRepository")
+ * @ORM\Table(name="cua_hang", indexes={@ORM\Index(name="id", columns={"id"})})
+ * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\CuaHangRepository")
  */
-class AdminStatus
-{
-
+class CuaHang {
     /**
      * @var integer
      *
@@ -21,22 +19,43 @@ class AdminStatus
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idStatus;
-
+    private $id;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
+     */
+    private $avatar;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diem", type="float", nullable=true)
+     */
+    private $diem;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+    
     /**
      * @var \DateTime
      *
@@ -50,36 +69,33 @@ class AdminStatus
      * @ORM\Column(name="date_modification", type="date", nullable=true)
      */
     private $dateModification;
-
+    
     public function __construct()
     {
 //        $this->address = new ArrayCollection();
-
     }
-
+    
     /**
-     * Get idStatus
+     * Get id
      *
      * @return integer
      */
-    public function getIdStatus()
+    public function getId()
     {
-        return $this->idStatus;
-
+        return $this->id;
     }
     
     /**
      * Set name
      *
      * @param string $name
-     * @return Compte
+     * @return Name
      */
     public function setName($name)
     {
         $this->name = $name;
 
         return $this;
-
     }
 
     /**
@@ -90,14 +106,59 @@ class AdminStatus
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     * @return Avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
 
+        return $this;
     }
 
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+    
+    /**
+     * Set diem
+     *
+     * @param string $diem
+     * @return Diem
+     */
+    public function setDiem($diem)
+    {
+        $this->diem = $diem;
+
+        return $this;
+    }
+
+    /**
+     * Get diem
+     *
+     * @return string
+     */
+    public function getDiem()
+    {
+        return $this->diem;
+    }
+    
     /**
      * Set description
      *
      * @param string $description
-     * @return Admin
+     * @return Description
      */
     public function setDescription($description)
     {
@@ -117,12 +178,35 @@ class AdminStatus
         return $this->description;
 
     }
+    
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
 
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
     /**
      * Set dateCreation
      *
      * @param \DateTime $dateCreation
-     * @return Compte
+     * @return DanhGiaBinhLuan
      */
     public function setDateCreation($dateCreation)
     {
@@ -147,7 +231,7 @@ class AdminStatus
      * Set dateModification
      *
      * @param \DateTime $dateModification
-     * @return Admin
+     * @return DanhGiaBinhLuan
      */
     public function setDateModification($dateModification)
     {
@@ -168,8 +252,4 @@ class AdminStatus
 
     }
     
-    public function getId()
-    {
-        return $this->getIdStatus();
-    }
 }

@@ -4,16 +4,18 @@ namespace SM\Bundle\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use SM\Bundle\AdminBundle\Entity\CuaHang;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * AdminStatus
+ * HinhAnhCuaHang
  *
- * @ORM\Table(name="admin_status", indexes={@ORM\Index(name="id", columns={"id"})})
- * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\AdminStatusRepository")
+ * @ORM\Table(name="hinh_anh_cua_hang", indexes={@ORM\Index(name="id", columns={"id"}), @ORM\Index(name="id_cua_hang", columns={"id_cua_hang"})})
+ * @ORM\Entity(repositoryClass="SM\Bundle\AdminBundle\Repository\HinhAnhCuaHangRepository")
  */
-class AdminStatus
+class HinhAnhCuaHang
 {
-
     /**
      * @var integer
      *
@@ -21,22 +23,39 @@ class AdminStatus
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idStatus;
-
+    private $id;
+    
+    /**
+     * @var \CuaHang
+     *
+     * @ORM\ManyToOne(targetEntity="CuaHang")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_cua_hang", referencedColumnName="id")
+     * })
+     */
+    private $idCuaHang;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
-
+    
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="file", type="string", length=255, nullable=true)
      */
-    private $description;
-
+    private $file;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+    
     /**
      * @var \DateTime
      *
@@ -50,21 +69,44 @@ class AdminStatus
      * @ORM\Column(name="date_modification", type="date", nullable=true)
      */
     private $dateModification;
-
+    
     public function __construct()
     {
 //        $this->address = new ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Set idCuaHang
+     *
+     * @param \SM\Bundle\AdminBundle\Entity\CuaHang $idCuaHang
+     * @return Status
+     */
+    public function setIdCuaHang(CuaHang $idCuaHang = null)
+    {
+        $this->idCuaHang = $idCuaHang;
+
+        return $this;
 
     }
 
     /**
-     * Get idStatus
+     * Get idCuaHang
      *
-     * @return integer
+     * @return \SM\Bundle\AdminBundle\Entity\CuaHang
      */
-    public function getIdStatus()
+    public function getIdCuaHang()
     {
-        return $this->idStatus;
+        return $this->idCuaHang;
 
     }
     
@@ -72,14 +114,13 @@ class AdminStatus
      * Set name
      *
      * @param string $name
-     * @return Compte
+     * @return Name
      */
     public function setName($name)
     {
         $this->name = $name;
 
         return $this;
-
     }
 
     /**
@@ -90,39 +131,59 @@ class AdminStatus
     public function getName()
     {
         return $this->name;
-
     }
-
+    
     /**
-     * Set description
+     * Set file
      *
-     * @param string $description
-     * @return Admin
+     * @param string $file
+     * @return Name
      */
-    public function setDescription($description)
+    public function setFile($file)
     {
-        $this->description = $description;
+        $this->file = $file;
 
         return $this;
-
     }
 
     /**
-     * Get description
+     * Get file
      *
      * @return string
      */
-    public function getDescription()
+    public function getFile()
     {
-        return $this->description;
+        return $this->file;
+    }
+    
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
 
+        return $this;
     }
 
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
     /**
      * Set dateCreation
      *
      * @param \DateTime $dateCreation
-     * @return Compte
+     * @return HinhAnhCuaHang
      */
     public function setDateCreation($dateCreation)
     {
@@ -147,7 +208,7 @@ class AdminStatus
      * Set dateModification
      *
      * @param \DateTime $dateModification
-     * @return Admin
+     * @return HinhAnhCuaHang
      */
     public function setDateModification($dateModification)
     {
@@ -166,10 +227,5 @@ class AdminStatus
     {
         return $this->dateModification;
 
-    }
-    
-    public function getId()
-    {
-        return $this->getIdStatus();
     }
 }
